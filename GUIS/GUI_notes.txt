@@ -1,0 +1,47 @@
+
+
+
+bitwise operators:
+& | << >> 
+
+logical operators:
+&& || ! 
+logical operators will short circuit(if 1st fills parameter skips others)
+
+
+1. edit  .java
+2. compile javac -> .class
+3. load .class library .class
+4. verify validate + security
+5. interpret  converts to machine code
+
+JDK-java development kit: language library, and include the compiler
+	compiler is javac
+	compiler is part of the JDK, if problems, it is with the JDK
+	editing and compiling in java (steps 1-2)
+	(command line) javac file.java //creates a .class file
+	.class file is in bytecode (can be ran on different OS)
+
+JRE-java runtime environment: java virtual machine, or VM
+	allows us to run a java program
+	if a java file can't be run, there is a problem with the JRE
+	load verify interpret (steps 3-5)
+	(command line) java file
+
+java made it big because you can compile it once and run it anywhere
+because of its bytecode property, and the emergence of the internet,
+java became a big deal because of different OS and doing server side
+things
+
+
+java -cp ./src (file path to the text file)
+
+
+conventions:
+	Naming
+		cannot use reserved words (ie. return, instanceof, public)
+		reserved words are all lower-case
+		cannot use identifiers
+		things that the developer controls/creates
+			can have letter, numbers, $_
+			cannot have spaces, and can't start with a number
