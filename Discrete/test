@@ -1,0 +1,42 @@
+
+\documentclass{article}
+\begin{document}
+1. Let R be the set of positive real numbers and define addition, 
+denoted by $\oplus$, and multiplication, denoted by $\otimes$, 
+as follows. For every $a, b \in R$, $a \oplus b = ab$, and $a \otimes b
+ = a^{\log b}$. Please prove or disprove $(R, \oplus, \otimes)$.
+ \bigskip
+ 
+ Since R contains only real positive numbers, both a and b are positive real numbers.
+ axiom 4 states that for any number there must be some element that when the addition
+ operator is applied, it results in 0. In range R, there cannot exist a number, b,
+ in R where $a \oplus b = 0$. Therefore $(R, \oplus, \otimes)$ is not a field
+ \bigskip
+ 
+ 2. Denote the set {0,1,2,3} in $Z_4$ and define addition, denoted by +, and
+ multiplication, denoted by $\cdot$ or juxtapostion, via the following tables:
+ \bigskip
+ 
+ axiom 8 states that for every number in $Z_4$ there is a multiplicative inverse
+ where $a \cdot a^{-1} = 1$. 2 from the range $Z_4$ has no multiplicatave inverse
+ because there exists no other number, b, in $Z_4$ where $a \cdot b = 1$. 
+\bigskip
+
+3. Suppose x is apositive integer with n digits, say $x = d_1 d_2 d_3 ... d_n$ in other
+words, $d_i \in [0,1,2...,9]$ for $ 1 \leq i \leq n$, but $d_1 \neq 0$. Please prove or 
+disprove the following. Recall that, for $a,b \in Z$, a is a divisor of b if $b = ak$,
+for some $k \in Z$.
+
+(a)If 9 is a divisor of $d_1 + d_2 + d_3 + ... + d_n$, then 9 is a divisor of x.
+
+solution (a)
+
+(b)If $d_n = 0$ or $d_n = 5$, then 5 is a divisor of x.
+
+solubtion(b)
+\bigskip
+
+4. Please prove or disprove: if $n \in Z^+$, then $n^2+n+41$ is prime
+ 
+ solution(4)
+\end{document}

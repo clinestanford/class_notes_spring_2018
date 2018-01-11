@@ -1,0 +1,19 @@
+
+tansistors are just switches. built on a silicon wafer
+
+all software has to run on hardware, find out which is faster
+
+depending on the cpu, it will be able to handle different things:
+	MIPS: 130 instructions
+	x86, x64: 1400 instructions
+	ARM: 255 instructions
+
+hard to determine fastest computer, depends on what your goal is
+
+How much faster?? take the faster and divide by slower. Gives you 
+the ratio
+
+Latency: time from input to corresponding output
+
+Throughput: Results produced per unit time
+

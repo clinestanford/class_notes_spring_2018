@@ -1,0 +1,37 @@
+------------  CS 5110  -------------
+
+design systems to act for groups of humans
+with 'green' city, find the best ways to make a system better
+
+What is an agent?
+it is autonomous, acts independently and is a computer system 
+capable of autonomous action in some evironment
+
+persistant software dedicated to a specific purpose
+-autonomy: operate without intervention from humans and have control over
+	their actions and internal state
+-social ability: agents interact with other agents via some kind of agent
+-reactivity: agents perceive their environment and respond to changes
+-pro-activeness: able to exhibit goal-directed behaviour by taking initiative
+
+BDI (belief desires and intentions)
+other properties of agents:
+-mobility
+-veracity
+-benevolence
+-rational
+
+Uncertain Pair-wise preferences:
+how to match pairs (husbands and wives so they get along) very difficult to
+consider all of the information that is going to be going into the system,
+and give them all their first choice
+
+revolutions within the computer field:
+	1. ubiquity, everyone has one
+	2. interconnection, communitcation
+	3. intelligence, accept the computers 'judgements'
+
+
+
+
+
