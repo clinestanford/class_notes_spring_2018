@@ -1,5 +1,7 @@
 ------------  CS 5110  -------------
 
+Jan 10, 2018
+
 design systems to act for groups of humans
 with 'green' city, find the best ways to make a system better
 
@@ -30,6 +32,59 @@ revolutions within the computer field:
 	1. ubiquity, everyone has one
 	2. interconnection, communitcation
 	3. intelligence, accept the computers 'judgements'
+
+
+Jan 12, 2018:
+
+interesting conundrum of car selling vs. the purchasing of the car
+if the average price of the car is 5, even when the quality of the 
+car justifies more, it is unlikely that a consumer would pay more than
+the average when the quality isn't fully known. 
+this is the case when only the seller knows the value of the car
+
+Fields with inspired agents
+	AI
+	Software engineering
+
+What are agents and why aren't they objects?
+	agent can have multiple objects
+	agents seem to be things that can come up with their own decisions
+	-by giving objects/agents their agency, you are allowing them
+	to make their own decisions
+
+Why use agents?
+	1. distributed environment, it is impossible to describe situation
+	2. Former paradigms/thoughts aren't as relevant
+	3. open systems (it is going to be hard to predict everything)
+		-don't fully know the situation (extra variables)
+
+Decentralization
+	1. decisions made faster
+	2. less infrastructure
+	3. transparency
+
+Motivations for Multi-agent systems:
+	1. Solve problems too large for a centralized agent
+	2. Allow interconnection and interoperations of multiple systems
+	3. solution to inherentl distributed problems
+	4. solutions that draw from distributed informations sources
+	5. solutions where expertise are distributed
+	6. conceptual clarity and simplicity of design
+	7. to be able to hide strategies from competition
+
+Benefits:
+	1. faster problem solving
+	2. decrease communication
+	3. flexibility
+
+*an agent is something that is capable of independent work/action on behalf
+of its owner*
+
+
+
+
+
+
 
 
 
