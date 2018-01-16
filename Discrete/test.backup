@@ -29,10 +29,7 @@ for some $k \in Z$.
 
 (a)If 9 is a divisor of $d_1 + d_2 + d_3 + ... + d_n$, then 9 is a divisor of x.
 
-Given that for $a,b \in Z$, a is a divisor of b if $b = ak$, for some $k \in Z$
-the only time where 9 is a divisor of $d_1+d_2+d_3+...+d_n$ is when it is also a value
-of $9*k$.
-
+solution (a)
 
 (b)If $d_n = 0$ or $d_n = 5$, then 5 is a divisor of x.
 

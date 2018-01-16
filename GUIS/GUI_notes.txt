@@ -45,3 +45,89 @@ conventions:
 		things that the developer controls/creates
 			can have letter, numbers, $_
 			cannot have spaces, and can't start with a number
+
+packages:
+	names are all lowercase, no spaces
+	fist line is package statement
+	used to get rid of ambiguity among classes
+	use reverse domain names in order to avoid redundance
+	//edu.usu.cs.man.shape.circle
+
+	java.lang is a special package, doesn't need to be imported
+		basically the standard library for java
+
+	import packages (1st)
+		type:
+		import javafx.scene.control.Button; //know it isn't a
+		//package because Button is capitalized
+		or:
+		import javafx.scene.control.* //imports all
+			-not a good idea, pulls too much
+			-vague doesn't inform you/other coders
+
+	import statements (2nd)
+
+modifiers: 
+	1. public, private*, nothing
+	2. abstract
+	3. static*: inner class only, no instances can be made
+	4. final
+	5. strictfp
+
+	filename and top level public class name are the same
+
+	access
+		private- 
+		protected-
+		public-
+		package private- default in java
+	other
+		abstract- must be overridden
+		final- cannot change -> constant //applies to classes
+		static- belongs to class, not the instance
+
+	must have one top level public class
+		top level is, code touches left side of text-area
+
+	classes and objects: class defines it, object is in use
+		naming:
+			UpperCamelCase
+			nouns
+			simple and descriptive
+			same as interfaces
+
+		helps with code reuse
+		encapsulation
+		everything is in a class, save import and package lines
+		structure:
+
+			<modifiers> class <ClassName> {
+
+			}
+
+	in order to restrict access to the class we have made, and
+	prevent others from instantiating it as an object, you must
+	override the default constructor as a private class
+
+data:
+	primitive-
+		integral:
+			int- 32 bit
+			long- 64 bit
+			short- 16 bit
+			byte- 8 bit
+		floating points:
+			float- 32 bit
+			double- 64 bit
+		text:
+			char- 16 bit, 
+		logical:
+			boolean- 1 bit, true/false
+		MODIFIERS FOR PRIMITIVE:
+			all access
+			static
+			final
+	references- not pointers
+		java has garbage collection done to free allocate mmry
+
+			
