@@ -6,7 +6,7 @@
 import random, pygame, sys
 from pygame.locals import *
 
-FPS = 15
+FPS = 5
 WINDOWWIDTH = 600
 WINDOWHEIGHT = 600
 CELLSIZE = 20
@@ -22,12 +22,12 @@ RED       = (255,   0,   0)
 GREEN     = (  0, 255,   0)
 DARKGREEN = (  0, 155,   0)
 DARKGRAY  = ( 40,  40,  40)
-ORANGE    = (255, 140,   0)
+SCOREBLUE = ( 65, 105, 225)
 YELLOW    = (255, 255,   0)
 BLUE      = (  0,   0, 255)
 DARKBLUE  = (  0,   0,  76)
 INDIGO    = ( 75,   0, 130)
-VIOLET    = (238, 140, 238)
+LIME      = (  0, 255,   0)
 BGCOLOR = BLACK
 
 UP = 'up'
@@ -123,8 +123,13 @@ def runGame():
                     loc = getRandomLocation()
                 apple[i] = loc
 
+        drawScore(len(wormCoords) - 3, LIME)
+
+
         # check if the worm has hit itself or the edge
         if wormCoords[HEAD]['x'] == -1 or wormCoords[HEAD]['x'] == CELLWIDTH or wormCoords[HEAD]['y'] == -1 or wormCoords[HEAD]['y'] == CELLHEIGHT:
+            drawScore(len(wormCoords) - 5, LIME)
+            pygame.display.update()
             return # game over
 
         for wormBody in wormCoords[1:]:
@@ -133,6 +138,7 @@ def runGame():
 
         #check if the second worm has hit itself
         if wormCoordstwo[HEAD]['x'] == -1 or wormCoordstwo[HEAD]['x'] == CELLWIDTH or wormCoordstwo[HEAD]['y'] == -1 or wormCoordstwo[HEAD]['y'] == CELLHEIGHT:
+            del wormCoordstwo[-2]
             return
 
         for wormBody in wormCoordstwo[1:]:
@@ -204,8 +210,8 @@ def runGame():
             drawApple(apple[i], RED)
         for i in range(len(yellow_apple)):
             drawApple(yellow_apple[i], YELLOW)
-        drawScore(len(wormCoords) - 3)
-        drawScore(len(wormCoordstwo) - 3)
+        drawScore(len(wormCoords) - 3, LIME)
+        drawScore(len(wormCoordstwo) - 3, SCOREBLUE)
         pygame.display.update()
         FPSCLOCK.tick(FPS)
 
@@ -230,8 +236,8 @@ def checkForKeyPress():
 
 def showStartScreen():
     titleFont = pygame.font.Font('freesansbold.ttf', 100)
-    titleSurf1 = titleFont.render('GettingJiggyWitIt', True, WHITE, DARKGREEN)
-    titleSurf2 = titleFont.render('GettingJiggyWitIt', True, GREEN)
+    titleSurf1 = titleFont.render('GROW IT', True, DARKGREEN, RED)
+    titleSurf2 = titleFont.render('GROW IT', True, DARKBLUE)
 
     degrees1 = 0
     degrees2 = 0
@@ -287,10 +293,13 @@ def showGameOverScreen():
             pygame.event.get() # clear event queue
             return
 
-def drawScore(score):
-    scoreSurf = BASICFONT.render('Score: %s' % (score), True, WHITE)
+def drawScore(score, color):
+    scoreSurf = BASICFONT.render('Score: %s' % (score), True, color)
     scoreRect = scoreSurf.get_rect()
-    scoreRect.topleft = (WINDOWWIDTH - 120, 10)
+    if color == LIME:
+    	scoreRect.topleft = (WINDOWWIDTH - 120, 10)
+    else:
+    	scoreRect.topleft = (WINDOWWIDTH - 120, 30)
     DISPLAYSURF.blit(scoreSurf, scoreRect)
 
 

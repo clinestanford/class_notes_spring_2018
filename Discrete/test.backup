@@ -29,11 +29,17 @@ for some $k \in Z$.
 
 (a)If 9 is a divisor of $d_1 + d_2 + d_3 + ... + d_n$, then 9 is a divisor of x.
 
-solution (a)
+Given that for $a,b \in Z$, a is a divisor of b if $b = ak$, for some $k \in Z$
+the only time where 9 is a divisor of $d_1+d_2+d_3+...+d_n$ is when it is also a value
+of $9*k$.
+
 
 (b)If $d_n = 0$ or $d_n = 5$, then 5 is a divisor of x.
 
-solubtion(b)
+to begin consider all of the values in $x = d_1 d_2 d_3 ... d_n$ except $d_n$. 
+this can be re-written as $x = d_1(10^n) + d_2(10^{n-1}) + d_3(10^{n-2}) + ... + 
+d_{n-1}(10^1)$ now we can factor out a 10 from the entire thing resulting in
+$x = 10(d_1(10^{n-1}) + d_2(10^{n-2}) + d_3(10^{n-3}) + ... + d_{n-1})$
 \bigskip
 
 4. Please prove or disprove: if $n \in Z^+$, then $n^2+n+41$ is prime:

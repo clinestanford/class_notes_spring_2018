@@ -17,3 +17,24 @@ Latency: time from input to corresponding output
 
 Throughput: Results produced per unit time
 
+on the CPU it will first look at the cache to see if the necessary
+software is there, then it will check the RAM and finally the hard-
+drive. The more it checks, the longer it takes and the less efficient
+it is.
+
+seconds/program = cycles/program * seconds/cycle
+
+there will be an average cycles per instruction("CPI")
+	not all cycles will take the same amount of time
+
+CPU time = Instruction Count * CPI * Clock Cycle Time
+MIPS: millions of Instructions per Seconds
+
+improve performance:
+	decrease required cycles for a program
+	decrease the clock cycle time
+	increase the clock rate
+	decrease the CPI (average clocks per instruction)
+
+
+
