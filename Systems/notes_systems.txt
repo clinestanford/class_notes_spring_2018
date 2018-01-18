@@ -36,5 +36,7 @@ improve performance:
 	increase the clock rate
 	decrease the CPI (average clocks per instruction)
 
+Amdahl's Law:  t(improved) = t(affected)/r(speedup)+t(unaffected)
+
 
 

@@ -13,21 +13,18 @@ and avoid a lot of the crap. search engines optimized this proccess.
 of a person in order to tailor workouts and other programs for them
 
 1.2-
-assembly lines in automobile manufacturing = pipelining
-suspension bridge cables = redundancy
-aircraft and marine navigation systems = prediction
-elevators = hierarchy of memories
-library reserve desk = make the common case fast
-increase gate area on CMOS = Design for Moore's Law
-Adding electromagnetic aircraft catapults = parallelism
-Building self-driving cars = use abstraction to simplify
+assembly lines in automobile manufacturing = 
+suspension bridge cables = 
+aircraft and marine navigation systems =
+elevators = 
+library reserve desk = 
+increase gate area on CMOS = 
+Adding electromagnetic aircraft catapults = 
+Building self-driving cars = 
 
 1.3-
 a program written in c is then converted into assembly which converts that 
 directly into binary. The binary is then executed on the hardware
 
-1.4- (8 bits is 1 Byte)
-Assume a color display using 8-bits for each of the primary colors per pixel and a frame size of 1280x1024?
-
-a. 1280x1024x(24 bits/8(bits/Byte)) = 3,932,160 Bytes
-b. (1280x1024x24 bits)(1e-6 Mb/bit)/(100 Mb/s) = .314 s.
+1.4-
+?Assum a color display using 8-bits for each of the primary colors per pixel and a frame size of 1280x1024?

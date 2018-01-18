@@ -34,3 +34,35 @@ for any paper think of three things:
 
 make sure all points made in paper are explicit and not 'between lines'
 	-Brian Cox and the second Law of Thermodynamics
+
+Concise: Uses few words to say much, but not necessarily the fewest number of words.
+	it will strive to use the strongest possible words.
+
+passive voice, "the soap was dropped by Tyler"
+	when the subject of the sentence (Tyler) comes second to the action
+	if you can append "by zombies" to the sentence, probably passive voice
+
+avoid the word 'that'
+	90% of the time it can be taken out. A filler word
+
+Use metaphors and examples to bring more clarity
+
+8 C's of technical writing:
+
+clear: get your ideas into the head of the other person. paragraph (4-6 lines)
+	acronym- Federal Drug Administration (FDA)
+consistent: sans-seriff for slide/projections, but seriff font for written
+	don't use contractions
+	conventions for equations, blank line before and after, label on right
+		label the variables beneath the equation.
+concise: Goldilocks, not too much, not too little.... just right
+correct: be sure that you have done your research
+	grammatically divide the number/technicalities with correct punctuation
+complete: having enough information that the reader knows what you are 
+	talking about
+	to be able to take an action with the added information.
+concrete: info is presented factually and without bias
+considerate: By following the other guidelines, you will be considerate
+	be gender neutral
+credible: use facts in your writing rather than generalities
+	

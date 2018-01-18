@@ -80,13 +80,16 @@ Benefits:
 *an agent is something that is capable of independent work/action on behalf
 of its owner*
 
+accessible/inacessible: gat all info vs. most real world situations
+deterministic vs. non-deterministic: single guaranteed effect
 
+hardest to predict/complex: dynamic/non-deterministic/inaccessible/continuous
 
+Reactive agents: perceive and react to changes in their environment
 
+stigmergy: changing environment to keep yourself informed(hansel and grettel)
 
-
-
-
-
-
+basically trying to combine two different trains of thoughts:
+	reactive, thinks completely for itself, but no big picture
+	learning, programmed to approach in the 'best' possible way
 

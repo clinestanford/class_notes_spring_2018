@@ -1,0 +1,5 @@
+#pragma once
+//to be added at the top of each .hpp file to avoid redundance
+
+make new
+//how to remake after getting errors from the make file
