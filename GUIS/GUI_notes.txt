@@ -1,4 +1,7 @@
-
+      ___                                
+     / __\                              
+     | |_                                
+     \___/                                 
 
 
 bitwise operators:
@@ -129,5 +132,54 @@ data:
 			final
 	references- not pointers
 		java has garbage collection done to free allocate mmry
+	naming:
+		lowerCamelCase
+		don't start with a $,_
+		mnemonic 
+		no one-character identifiers (names), except i, j
 
-			
+	constants:
+		final- to declare an unalterable variable
+			naming: ALL IN CAPS
+
+a reference and a pointer are not the same
+	a pointer can do iterations and arithmetic
+
+can access itself by saying this.<class member variable>
+	can help reduce confusion between variables
+
+methods:
+	MODIFIERS: public, private, protected, static, abstract, final, 
+		package protected
+	FORMAL PARAMETERS: 
+		formal parameters- when it is declared in the method
+		actual parameters- when the method is actually called
+
+	<MODIFIERS> <RETURN TYPE> <METHOD NAME> {
+		<FORMAL PARAMETERS>
+
+	}
+
+String- part of java.lang (use without importing)
+	declare with:
+		String str1 = "hello";
+		String str2 = new String("goodbye");
+
+	printf: look up javadoc for printf to understand formatting
+	parsing numbers: 
+		Integer.parseInt(str1) //will convert a str to an int
+			because Integer starts with "I" it is a class
+			parseInt is static because we used w/o declaring instance
+			Integer is a wrapper class
+				8 for each of the primitive data types
+	Mutable vs. immutable: Can/Can't be changed
+		Strings are mutable
+
+	Methods:
+		str1.CompareTo(str2); // returns 0 if equal
+		str1.equals(str2); // returns true/false
+		
+
+
+
+	

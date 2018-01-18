@@ -8,7 +8,7 @@ as follows. For every $a, b \in R$, $a \oplus b = ab$, and $a \otimes b
 \bigskip
 
 axiom -1: since $R \in R^+$, $\oplus$ is closed in $R$. There is
-no positive real number for which $a \dor b \in R^+$
+no positive real number for which $a \dot b \in R^+$
 
 axiom 0: since $R \in R^+$ and $\otimes$ is defined as $a \otimes b
 = a^{\log b}$, starting with the lowest possible value, $a,b = 1$, $1^{log 1}$
@@ -50,7 +50,13 @@ Since $a \in R^+$, $log_a 10$ is positive for all values a. This means that
 $10^{R^+}$ and will result in a positive real number meaning that for all 
 values $a$, there exists another number $b\in R^+$ for the multiplicatave inverse.
 
-axiom 9:
+axiom 9: Multiplication distributes over addition. If $x,y,z \in R$, then $x\cdot (
+y + z) = x \cdot y + x \cdot z$ and $(x+y) \cdot z = z \cdot x + z \cdot y$. With our
+redefined definition of both addition and multiplication, $x \cdot (y + z) = x \otimes
+(y \cdot z) = x ^{log y \cdot log z}$ and on the right side of the equation $x \cdot y + x \cdot z
+= 
+//still working on axiom 9
+
 
 Since R contains only real positive numbers, both a and b are positive real numbers.
 axiom 4 states that for any number there must be some element that when the addition
