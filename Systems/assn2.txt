@@ -1,0 +1,33 @@
+Stanford Cline
+Computer Systems
+1/18/2018
+
+1.5, 1.6, 1.8, 1.10
+
+1.5: consider the three different processors, P1, P2, P3 executing the same instruction set.
+P1 has a 3Ghz clock rate and a CPI of 1.5. P2 has a 2.5 Ghz clock rate and a CPI of 1.0. P3 
+has a 4.0 Ghz clock rate and has a CPI of 2.2
+
+	a. Which processor has the highest performance expressed in instructions per second?
+		CPI = cycles per instruction
+		Ghz = cycles per second
+		Ghz/CPI = instructions per second
+		P1: 3 Ghz/1.5 = 2e9 instructions/second
+		P2: 2.5 Ghz/1.0 = 2.5e9 instructions/second
+		P3: 4.0 Ghz/2.2 = 1.82e9 instructions/second
+			therefore P2 has the highest instructions per second
+	b. If the processors each execute a program in 10 seconds, find the number of cycles 
+	and the number of instructions.
+		CPU time = (instruction count x CPI)/Clock Rate
+		instruction count = (CPU time x Clock Rate)/CPI
+		P1:
+			instructions: 20e9 instructions
+			cycles: 30e9 cycles
+		P2:
+			instructions: 20e9 instructions
+			cycles: 30e9 cycles
+		P3:
+			instructions: 20e9 instructions
+			cycles: 30e9 cycles
+	c. We are trying to reduce the execution time by 30% but this leads to an increase of
+	20% in the CPI. what clockrate should we have to get this time reduciton?
