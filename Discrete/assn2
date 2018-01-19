@@ -1,0 +1,25 @@
+3. Suppose x is apositive integer with n digits, say $x = d_1 d_2 d_3 ... d_n$ in other
+words, $d_i \in [0,1,2...,9]$ for $ 1 \leq i \leq n$, but $d_1 \neq 0$. Please prove or 
+disprove the following. Recall that, for $a,b \in Z$, a is a divisor of b if $b = ak$,
+for some $k \in Z$.
+
+(a)If 9 is a divisor of $d_1 + d_2 + d_3 + ... + d_n$, then 9 is a divisor of x.
+
+Given that for $a,b \in Z$, a is a divisor of b if $b = ak$, for some $k \in Z$
+the only time where 9 is a divisor of $d_1+d_2+d_3+...+d_n$ is when it is also a value
+of $9*k$.
+
+
+(b)If $d_n = 0$ or $d_n = 5$, then 5 is a divisor of x.
+
+to begin consider all of the values in $x = d_1 d_2 d_3 ... d_n$ where $d_n = 0$. 
+this can be re-written as $x = d_1(10^n) + d_2(10^{n-1}) + d_3(10^{n-2}) + ... + 
+d_{n-1}(10^1)$ now we can factor out a 10 from the entire thing resulting in
+$x = 10(d_1(10^{n-1}) + d_2(10^{n-2}) + d_3(10^{n-3}) + ... + d_{n-1})$. Since
+the 10 is divisible by 5, for all values of $x$ where $d_n = 0$, it will be divisible
+by 5. Now to consider when $d_n=5$ given that any number where $d_n = 0$ is divisible
+by 5, let us consider the following $x = 10(d_1(10^{n-1}) + d_2(10^{n-2}) + d_3(10^{n-3}) 
++ ... + d_{n-1}) + 5$ now if we were to factor out a five from the equation, it would
+resutl in $x = 5(2(d_1(10^{n-1}) + d_2(10^{n-2}) + d_3(10^{n-3}) + ... + d_{n-1})+1)$
+which will be divisible by 5 as well. Thus all numbers where $d_n = 0,5$ are divisible 
+5.
