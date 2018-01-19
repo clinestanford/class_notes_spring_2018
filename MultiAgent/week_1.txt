@@ -93,3 +93,18 @@ basically trying to combine two different trains of thoughts:
 	reactive, thinks completely for itself, but no big picture
 	learning, programmed to approach in the 'best' possible way
 
+environments:
+	-environments are affected by actions that take place
+	-constantly changing and it is difficult to tell exactly
+	how an action is going to effect environment
+	the state transformer function t(tau)
+		represents the behavior of the environment
+	perception: see function is the ability to observe the
+		environment
+	Agents that have 'state' as well:
+		they analyze the state, take and action and continue
+		acting.
+	environment vs state:
+		environment: the current facts, everything
+		state: what we have chosen to remember, considers past
+	

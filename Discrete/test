@@ -1,6 +1,14 @@
 
 \documentclass{article}
 \begin{document}
+
+Stanford Cline
+
+Discrete Math
+
+Jan 19, 2018
+\bigskip
+
 1. Let R be the set of positive real numbers and define addition, 
 denoted by $\oplus$, and multiplication, denoted by $\otimes$, 
 as follows. For every $a, b \in R$, $a \oplus b = ab$, and $a \otimes b
@@ -14,7 +22,7 @@ axiom 0: since $R \in R^+$ and $\otimes$ is defined as $a \otimes b
 = a^{\log b}$, starting with the lowest possible value, $a,b = 1$, $1^{log 1}$
 results in 1, which is included in $R^+$. 
 as both values approach infinity the result also approaches infinity
-which is a real number.
+which is a positive real number.
 
 axiom 1: addition is commutative, for all values $a,b$, $a \cdot b = b \cdot a$
 
@@ -22,11 +30,12 @@ axiom 2: addition is associative, for all values $a,b,c$, $(a \cdot b)\cdot c =
 a \cdot (b \cdot c)$
 
 axiom 3: there exists an additive identity. since the $\otimes$ is defined as 
-$a \oplus b = ab$, the addtive identity is 1. $1 \cdot x = x \cdot 1 = x$.
+$a \oplus b = ab$, the additive identity is 1. $1 \cdot x = x \cdot 1 = x$.
 
 axiom 4: There is an additive inverse. Since the additive identity is 1, there must
 be a value for every $x \in R^+$ where $x \cdot y = 1$. This would be the inverse of
-of the number $x$. For example: $x = 3$, $x \cdot x^{-1} = 3 \cdot 1/3 = 1$
+of the number $x$. For example: $x = 3$, $x \cdot x^{-1} = 3 \cdot 1/3 = 1$. Since
+both $x, x^{-1} \in R$ axiom 4 holds.
 
 axiom 5: multiplication is commutative. $a \otimes b i= a^{\log b}$. This is
 commutative because if you take $log_a$ of both sides it resutls in 
@@ -36,9 +45,9 @@ out and you're left with $log b = log b$. Since they are equal,
 $\otimes$ is commutative.
 
 axiom 6: Multiplication is associative. Given $a, b, c$: $(a \otimes b) \otimes
-c = a \otimes (b \otimes c)$ on the left, the resultant is $(a ^{log b})^{log c}$, 
-and on the right side, $(a ^{log b})^{log c}$. Since these are equal, multiplication
-is associative
+c = a \otimes (b \otimes c)$ on the left, the resultant is $(a ^{log b}) \otimes c =
+a ^ {log b \cdot log c}$, and on the right side, $a \otimes b^{log c} = a ^{log b \cdot
+log c}$. Since these are equal, multiplication is associative.
 
 axiom 7: there exists a multiplicatave identity. This axiom holds true for the
 value 10. $(a^{log 10} = 10 ^ {log a} = a)$
@@ -69,11 +78,12 @@ multiplication, denoted by $\cdot$ or juxtapostion, via the following tables:
 \bigskip
  
 axiom 8 states that for every number in $Z_4$ there is a multiplicative inverse
-where $a \cdot a^{-1} = 1$. 2 from the range $Z_4$ has no multiplicatave inverse
+where $a \cdot a^{-1} =$ multiplicatave inverse $= 1$. 2 from the range $Z_4$ has no multiplicatave inverse
 because there exists no other number, b, in $Z_4$ where $a \cdot b = 1$. 
 \bigskip
 
 4. Please prove or disprove: if $n \in Z^+$, then $n^2+n+41$ is prime:
+\bigskip
 
 question 4 asserts that if $n \in Z^+$, then for all values $n$, $n^2+n+41$
 will be prime. In order to disprove this, there must be some value for $n$
