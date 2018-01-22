@@ -73,6 +73,30 @@ Computers only understand bits, 1's and 0's
 		hexadecimal is base 16
 			always leads with 0x.
 	Negative values:
+		can have sign bit, where farthest left is sign of int
 		2's compliment-used to make the math much easier
-		
+			left most bit will be a negative value, the rest are (+)
+			the CPU interprets it based on the instructions it is given
+				can interpret 2's compliment, ascii, hexadecimal
 
+			11+101 = 1000
+
+			subtraction will convert one number into 2's compliment and 
+			add the two numbers together
+
+			writing 247 in binary: for unsigned bit
+				keep dividing 247 by 2, 
+					if(x%2 == 0) 0:1;
+					x is then rounded down(if it didn't go in evenly)
+			working with 2's compliment:
+				using an 8-bit number, min=-128 max=127
+				1. take absolute value, convert to binary
+
+				(if negative do steps 2,3)
+				2. flip all bits
+					10011010 -> 01100101
+				3. add one
+					101100101
+
+		
+	hexadecimal and octet are basically simplified binary
