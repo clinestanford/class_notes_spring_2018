@@ -86,17 +86,25 @@ Computers only understand bits, 1's and 0's
 
 			writing 247 in binary: for unsigned bit
 				keep dividing 247 by 2, 
-					if(x%2 == 0) 0:1;
+					if(x%2 == 0) 0:1; //continue dividing by 2
 					x is then rounded down(if it didn't go in evenly)
 			working with 2's compliment:
 				using an 8-bit number, min=-128 max=127
+				using an 8-bit number, binary will have 8 digits
 				1. take absolute value, convert to binary
 
 				(if negative do steps 2,3)
 				2. flip all bits
 					10011010 -> 01100101
 				3. add one
-					101100101
+					01101010
+		add ones of the left to convert to a 16/32-bit number
+	Little Endian vs. Big Endian:
+		Big Endian: 100's 10's 1's
+		Little Endian: 1's 10's 100's
+		-for TCP/IP, uses Big Endian, most computers will use Little Endian
+		flop the order of the 4-bit packets to convert but it VARIES
 
-		
 	hexadecimal and octet are basically simplified binary
+
+	Floating Point Number:
