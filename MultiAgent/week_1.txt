@@ -118,10 +118,35 @@ lottery:
 [p,A;1-p,C] (probability of Getting A)
 			1-p (probability of Getting C) 
 you can take your chances getting A(hopefully)
-or trade for some other value B. Where A > B >C
+or trade for some other value B. Where A > B > C
 
 Risk averse: avoiding risk, and cashing out
 Risk neutral: accepting some risk for more payour
 Risk seeking: double down baby!
+
+indifference curves:
+	whether you care about quality or cheapness
+		there will be indifference curves where things are rated
+		at the exact same level
+	individual won't care between any 2 points on the same curve
+	combined, will result in an indifference map
+
+marginal rate of substitution (MRS):
+	basically negotiating- I will drop in quality for a cheaper item
+
+Perfect substitute case and perfect colpliments:
+	perfect substitue: lines with m = -1 on graph
+	perfect compliments: right anled lines (same number dogs + buns)
+
+expected return and expected utility:
+	[p:A, (1-p):B] a 'lotter'
+	expected return: what you get (in $$)
+	expected value: what your return is worth
+
+	
+
+
+
+
 
 
