@@ -108,3 +108,20 @@ environments:
 		environment: the current facts, everything
 		state: what we have chosen to remember, considers past
 	
+Utilities: may show a degree of happiness- 
+	cardinal (quality of solution)
+	ordinal (shows ranking-first, second, third)
+
+V is or;
+^ is and;
+lottery:
+[p,A;1-p,C] (probability of Getting A)
+			1-p (probability of Getting C) 
+you can take your chances getting A(hopefully)
+or trade for some other value B. Where A > B >C
+
+Risk averse: avoiding risk, and cashing out
+Risk neutral: accepting some risk for more payour
+Risk seeking: double down baby!
+
+

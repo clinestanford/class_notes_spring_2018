@@ -108,3 +108,47 @@ Computers only understand bits, 1's and 0's
 	hexadecimal and octet are basically simplified binary
 
 	Floating Point Number:
+
+Input/Output <---> CPU <---> Main Memory (the computer model)
+	input/output enters the memory, then is processed by control unit
+	CPUs understand instructions(a string of bits, a specified set of them)
+		Instruction set: the full vocabulary
+		instruction and data may be stored as numbers in numbers
+	Memory: a word is probably 4 bytes
+		memory is stored in a column of 4 bytes
+			starting from the bottom of the column-
+				0x0000c
+				0x00008
+				0x00004
+				0x00000
+	An instruction is a primitive operation
+	Instructions:
+		on boot is stored in the hard drive
+	designing instruction set: tradeoffs, performance, compactness, programmable
+		reduced instruction set (RISC)
+		complete instruction set (CISC)
+
+	A program always starts at 0x00000, and works upwards
+	CPU fetches and executes instructions from memory
+
+
+
+Assembly-
+	can add a label on any line, label can't have spaces, can't commence #
+	loops:
+		use a jump/goto label, and it will take you there
+		only while, and do while loops
+		in assembly:
+			j  (label of line)
+	conditions:
+
+
+	add $t0, $t1, $t2 (add t1 and t2, result is stored in t0)
+		this is an rtype instruction
+		there are two other types of instruction sets
+	addi $t0, $t1, 1 --> the 1 is an immediate operand
+	a register is a variable, can be 32-bit or 64-bit
+		a register is memory location inside of the CPU
+	opcodes: operations, 1-4 letters	
+
+
