@@ -142,7 +142,13 @@ Assembly-
 			j  (label of line)
 	conditions:
 
-
+	instruction types:
+		rtype:  SUB   $t0           $t1 $t2
+				  destination	    Sources 
+		itype:  ADDI  #t0		 $t1 	1 	
+				   destination source constant
+		jtype: a jump command, give opcode and address
+		
 	add $t0, $t1, $t2 (add t1 and t2, result is stored in t0)
 		this is an rtype instruction
 		there are two other types of instruction sets
