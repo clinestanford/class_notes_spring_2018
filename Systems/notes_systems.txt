@@ -133,6 +133,7 @@ Input/Output <---> CPU <---> Main Memory (the computer model)
 
 
 
+
 Assembly-
 	can add a label on any line, label can't have spaces, can't commence #
 	loops:
@@ -156,5 +157,22 @@ Assembly-
 	a register is a variable, can be 32-bit or 64-bit
 		a register is memory location inside of the CPU
 	opcodes: operations, 1-4 letters	
+
+MIPS lines are increments of 4, not indices
+there are 32 names registers
+	you can 'technically' us them however you want to
+	$0 always contains the value '0'
+		cannot write to it
+	going to and from memory take a lot of time, try and use registers
+
+	registers are each 5 bits, you only need 5 bits to identify 32 locations
+	every instruction in assembly can be written in binary
+	each line/instruction is 4 Bytes, 32 bits
+
+Shifting operations:
+	a shift left once will multiply by two (be aware of your number of bits)
+	a shift right once will divide by two (be aware of your number of bits)
+
+addi assumes that it is in 2's compliment form
 
 

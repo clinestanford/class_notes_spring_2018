@@ -1,6 +1,127 @@
---------------------------------------Starting GUIs------------------------------------
+--------------------------Starting GUIs------------------------------
 
-      ___    _   _   _____   ___                
-     / __\  | | | | |_   _| / __/               
-     | |__  | |_| |  _| |_  \__ \               
-     \___/   \___/  |_____| /___/               
+			      ___    _   _   _____   ___                
+			     / __\  | | | | |_   _| / __/               
+			     | |__  | |_| |  _| |_  \__ \               
+			     \___/   \___/  |_____| /___/               
+
+JavaFX
+
+import javafx.application.Application
+
+starting the GUI
+
+public class Demo extends Application{
+	
+
+	public void start(Stage primaryStage){
+		//start with dialogues, pop up text boxes basically)
+		//enumerated type, never will use a NONE again
+		Alert dialog = new Alert(Alert.AlertType.NONE);
+
+		Window window = dialog.getDialogPane().getScene().getWindow();
+
+		//first example for event handling, what to do with a close request
+		window.setOnCloseRequest(event -> window.hide());
+
+		//can either use .show() or .showAndWait();
+		//.showAndWait(), must deal with pop up before continuing
+		dialog.showAndWait();
+
+	}
+
+}
+
+
+public class Demo extends Application{
+	
+
+	public void start(Stage primaryStage){
+		//different kind of type, type INFORMATION
+		Alert dialog = new Alert(Alert.AlertType.INFORMATION);
+		dialog.setTitle("GetJiggyWitIt"); //can be set to null
+		dialog.setHeaderText("This information is displayed");
+		dialog.setContentText("where the bulk of the info is");
+
+
+		dialog.showAndWait();
+
+	}
+
+}
+
+public class Demo extends Application{
+
+	public void start(Stage primaryStage){
+
+		Alert dialog = new Alert(Alert.AlertType.Warning);
+		dialog.setTitle("Title of window");
+		dialog.setHeaderText(null);
+		dialog.setContentText("where info goes");
+
+		dialog.showAndWait();
+	}
+}
+
+public class Demo extends Application{
+
+	public void start(Stage primaryStage){
+		//confirmation box gives you a little more functionality
+		// you will get an "ok" box and "cancel"
+		Alert dialog = new Alert(Alert.AlertType.CONFIRMATION);
+		dialog.setTitle("GetJiggyWitIt"); 
+		dialog.setHeaderText("This information is displayed");
+		dialog.setContentText("where the bulk of the info is");
+
+		//Optional will be returned from the dialog box
+		Optional<ButtonType> result = dialog.showAndWait();
+
+		if(result.get() == ButtonType.OK){
+			System.out.println("you hit ok");
+		} else if (result.get() == ButtonType.){
+			System.out.println("You hit cancel");
+		}
+	}
+}
+
+public class Demo extends Application{
+	
+	public void start(Stage primaryStage){
+		ArrayList<String> list = new ArrayList<>();
+		List.add("First");
+		List.add("Second");
+		List.add("Third");
+
+		//can initialize with a default value, or "". Your choice
+		ChoiceDialog<String> dialog = new Choice Dialog<>("", list);
+
+		dialog.setHeaderText("null");
+		dialog.setContentText("Please make a choice");
+		dialog.showAndWait();
+		//handling the different selections of buttons
+		Optional<String> res = dialog.showAndWait();
+		
+		//make sure the user made a choice
+		if(res.isPresent()){ 
+			System.out.println("You selected: " + res.get());
+		} else {
+			System.out.println("You hit cancel");
+		}
+	}
+}
+
+public class Demo extends Application{
+	
+	public void start(Stage primaryStage){
+
+		//can set with a default string, 
+		TextInputDialog dialog = new TextInputDialog("default");
+		dialog.setHeaderText(null);
+		dialog.setContentText("Please make a choice");
+
+		Optional<String> res = dialog.showAndWait();
+
+		System.out.println(res.get());
+	}
+}
+
