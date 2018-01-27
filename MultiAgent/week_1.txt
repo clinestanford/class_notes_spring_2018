@@ -139,12 +139,29 @@ Perfect substitute case and perfect colpliments:
 	perfect compliments: right anled lines (same number dogs + buns)
 
 expected return and expected utility:
-	[p:A, (1-p):B] a 'lotter'
+	[p:A, (1-p):B] a 'lottery'
 	expected return: what you get (in $$)
 	expected value: what your return is worth
 
-	
+Game Theory:
+	Prisoner's Dilemma: 2 friends jailed, who confesses? Tradeoff
+	Payoff Matrix:
+		our success depends on others making the same decisions
+	normal form game
+	Strategy:
+		is the description of how we play our game
 
+	Nash equilibrium:
+		they are at a crossroads, where neither will give it up
+		mutual best response
+
+	pareto optimal:
+		there isn't a better choice where you don't hurt the other
+			constanst sum:
+				where all options are at a pareto optimal
+
+	Best Response:
+		A collaboration, if you.... then I will....
 
 
 
