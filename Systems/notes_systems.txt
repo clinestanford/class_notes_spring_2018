@@ -175,4 +175,13 @@ Shifting operations:
 
 addi assumes that it is in 2's compliment form
 
+shift amount(shamt) is limited to a 32 bit, becuause after 32 bits, it runs
+out of bits and would shift it out.
 
+multiplying 2 32-bit numbers could result in a 64-bit number
+	when storing the result of multiplication, there will be a high and low 32
+	bit registry where the answer is stored.
+
+division:
+	lo = $rs / $rt
+	hi = $rs % $rt
