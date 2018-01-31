@@ -185,3 +185,11 @@ multiplying 2 32-bit numbers could result in a 64-bit number
 division:
 	lo = $rs / $rt
 	hi = $rs % $rt
+
+in assembly there are no for loops, only while and do-while loops
+	Do-while:
+		will start running through loop, only one jump
+			set less than: slu- should return non-zero when true
+	while:
+		starts with a beq, and goes to a jump
+		have a done-with-loop address at the end of beq line

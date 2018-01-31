@@ -125,3 +125,37 @@ public class Demo extends Application{
 	}
 }
 
+
+Formatting:
+
+	go into the src folder and add package
+		add file inside of package ie "custom.css"
+		monospace gives all characters the same width
+			-fx-font-family: monospace;
+
+
+public class Demo extends Application{
+	public void start(Stage primaryStage){
+		Alert dialog = new Alert(Alert.AlertType.Information);
+		dialog.setHeaderText(null);
+		dialog.setContentText("");
+
+		dialog.getDialogPane().getStyleSheets().add("resources/custom.css");
+
+		dialog.getDialogPane().setPrefSize("width", "height");
+		dialog.setOnCloseRequest(event -> System.exit(30));
+
+		System.exit(int); //can exit with the status you give it. you know which is thrown
+
+
+	}
+}
+
+Real GUIs:
+	AWT, Swing, JavaFX- JavaFX is much better. Swing doesn't use native UI.
+	JavaFX is the official UI for java
+
+	Hiearchy of JavaFX
+	Stage
+		Scene
+			Node: shape, image view, control, pane
