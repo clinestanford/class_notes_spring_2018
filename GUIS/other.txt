@@ -1,0 +1,4 @@
+
+
+ImageView / Image:
+	can take jpg, png, gif, bmp;

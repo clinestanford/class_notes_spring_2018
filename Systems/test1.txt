@@ -1,0 +1,50 @@
+
+8 great ideas:
+	1. Abstraction
+		car: don't need to understand
+	2. Performance via pipelining
+		assembly lines, laundry
+	3. Reliability via redundancy
+		redundant flight controls(in case of failiure)
+	4. Make common case fast
+		express elevator, fast-n-ready pizzas
+	5. memory hierarchy
+		hdd->ram->L3->L2->L1 (caches)
+	6. performance via parallelism
+		multi-lane traffic, teaching to groups vs. individuals
+	7. Performance via prediction
+		website preloads
+	8. Design for Morre's Law
+		buy for population increase or logistical engineer
+
+convert to assembly:
+
+assume $s0=&A, $s2 = size of A
+
+B[0] = A[0]
+A[size()-1] = B[i]
+
+lw $t9 0($s0)
+sw $t9 0($s1)
+
+sll $t8 $t0 2 		//index to offset
+add $t8 $s1 $t8		//add base address
+ lw $t7 0($t8)		//B[i] into $t7
+
+addi $t6 $s2 -1
+sll  $t6 $t6 2		//mult by 4
+add $t6 $t6 $s0		//
+sw  $t7 0($t6)		//store value into the memory address
+
+use 12 bits to represent the number -432
+	use 2s compliment, start by writing number in binary
+	 -> 0001 1011 0000	#12bits
+	 hex: 1    B    0
+	 -> 1110 0100 1111	#flip all bits
+	 -> 1110 0101 0000	#add 1
+	 hex: E    5    0
+
+	 use definition of 2s compliment to make sure you got
+	 the right answer
+
+be familiar with logical ors and ands

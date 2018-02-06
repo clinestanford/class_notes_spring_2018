@@ -224,3 +224,6 @@ public class Demo extends Application{
 		imageView.setPreserveRatio(true);
 	}
 }
+
+
+"added text for a different git commit"

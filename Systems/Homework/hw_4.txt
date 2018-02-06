@@ -1,0 +1,154 @@
+Stanford Cline
+Feb. 2, 2018
+Systems
+
+2.12, 2.19, 2.20
+
+
+2.12-
+1.
+0x80000000 + 0xD0000000 =
+
+1000 0000 0000 0000 0000 0000 0000 0000
+1101 0000 0000 0000 0000 0000 0000 0000
+
+0001 0101 0000 0000 0000 0000 0000 0000 0000
+
+because the value can only hold 32-bits, the left most byte would be removed.
+the final answer would be:
+
+0101 0000 0000 0000 0000 0000 0000 0000 = 0x50000000
+
+2. There was overflow, it wouldn't be the correct answer. we truncated from
+
+0x150000000 to 0x50000000
+
+3. What is the value of:   sub $t0 $s0 $s1
+
+0x80000000 - 0xD0000000 =
+
+1000 0000 0000 0000 0000 0000 0000 0000
+1101 0000 0000 0000 0000 0000 0000 0000
+
+convert 0xD0000000 into 2's compliment:
+0010 1111 1111 1111 1111 1111 1111 1111 + 1
+
+0011 0000 0000 0000 0000 0000 0000 0000
+add to the 0x80000000 to get:
+
+1011 0000 0000 0000 0000 0000 0000 0000
+
+final answer:
+0xb0000000
+
+4. Yes this is the desired result no overflow has occured
+
+5. find the value for $t0 for:
+
+add $t0 $s0 $s1
+add $t0 $t0 $s0
+
+as seen in part 1 of this problem, we found the solution of $t0 for the line
+add $t0 $s0 $s1 to be:
+
+$t0 = 0001 0101 0000 0000 0000 0000 0000 0000 0000 (overflow will be occuring)
+
+and now for the second line:
+
+0001 1000 0000 0000 0000 0000 0000 0000 0000
+     0101 0000 0000 0000 0000 0000 0000 0000
+
+and we add the two numbers to get:
+
+0001 1101 0000 0000 0000 0000 0000 0000 0000 = 0x1D0000000
+
+6. if the value of $t0 is being stored in a 32-bit register, overflow would
+have occured however if it is using a 64-bit register, overflow would not have occured
+
+
+
+2.19
+
+1.
+You are given the following two registers:
+
+$t0 = 0xAAAAAAAA = 1010 1010 1010 1010 1010 1010 1010 1010
+$t1 = 0x12345678 = 0001 0010 0011 0100 0101 0110 0111 1000
+
+by running sll $t2 $t0 44, we shift the bit values in $t0 44 places which results in all 0s
+
+$t2 = 0000 0000 0000 0000 0000 0000 0000 0000
+
+now 
+	or $t2 $t2 $t1
+
+or will give a 0 if both bits at an index are 0 and a 1 otherwise
+
+$t2 = 0000 0000 0000 0000 0000 0000 0000 0000
+$t1 = 0001 0010 0011 0100 0101 0110 0111 1000
+
+result gets stored in $t2:
+
+$t2 = 0001 0010 0011 0100 0101 0110 0111 1000
+
+2.
+find the value of $t2 after:
+
+ sll $t2 $t0 4
+andi $t2 $t2 -1
+
+$t2 is the value of $t0 shifted by four bits
+
+$t2 = 1010 1010 1010 1010 1010 1010 1010 0000
+
+now switch it to a 2's compliment for the 1 and add:
+
+$t2 = 0101 0101 0101 0101 0101 0101 0101 0000
+ -1 = 1111 1111 1111 1111 1111 1111 1111 1111
+
+final result:
+
+$t2 =  0101 0101 0101 0101 0101 0101 0110 0000
+
+$t2 = 0xAAAAAAA0
+
+3. 
+
+ srl $t2 $t0 3
+andi $t2 $t2 0xFFEF
+
+find the value of $t2:
+
+$t0 = 1010 1010 1010 1010 1010 1010 1010 1010
+
+shifting the bits right three units results in
+
+$t2 = 0001 0101 0101 0101 0101 0101 0101 0101
+
+and 0xFFEF can be written
+
+0xFFEF = 0000 0000 0000 0000 1111 1111 1110 1111
+
+by applying the andi to these to 32-bit values:
+
+   $t2 = 0001 0101 0101 0101 0101 0101 0101 0101
+0xFFEF = 0000 0000 0000 0000 1111 1111 1110 1111
+
+the final result is
+
+$t2 = 0000 0000 0000 0000 0101 0101 0100 0101
+$t2 = 0x00005545
+
+
+2.20
+Find the shortes sequence of MIPS instructions that extracts bits 16 down to 11 from register
+$t0 and uses the value of this field to replace bits 31 down to 26 in register $t1 without 
+changing the other 26 bits of register $t1.
+
+
+srl $t2 $t0 11 		//shifts the values to the right 11 places
+sll $t2 $t2 26		//shifts the values to the left 26 places leaving the rest zeroes
+srl $t1 $t1 6		//shifts all values in $t1 to the right 6 places, leaving space for $t2
+add $t1 $t2 $t1		//add the two values together resulting in your final answer
+
+

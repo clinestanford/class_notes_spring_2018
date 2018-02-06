@@ -1,0 +1,11 @@
+Stanford Cline
+MultiAgent Systems
+1/29/2018
+
+1. 
+	Our family has had the hardest time coming up with a time where all the family can get together over the summer. It took a few months to decide where we are going to be staying, which ended up being Bair Lake, but now we are trying to decide the style in which we are going to stay. I didn't know this could be such an issue. the key decision makers are all of the extended family aunts and uncles. The goals for each of them is to have the best time possible while walking the fine line between enjoying yourselves and spending too much money. In this situation it is much better to have a multi agent solution because everyone has different priorities. Some are going to be camping with their families, while others stay in cabins, and they make those decisions based on how comfortable they are and how much they are willing to spend.
+
+2. 
+	One decision that I have to make is whether or not to buy a new laptop. there is nothing inherently wrong with my current laptop, but it is six years old, and is due for an update. After comparing a few newer laptops, the ones I would be interested in buying are a little out of my price range, while those in my price range aren't better enough than my current laptop to justify dropping the amount of money that is technically in my budget. The indifference curves would look something like:
+
+	
