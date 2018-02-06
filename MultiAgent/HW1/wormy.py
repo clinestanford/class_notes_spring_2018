@@ -6,7 +6,7 @@
 import random, pygame, sys
 from pygame.locals import *
 
-FPS = 20
+FPS = 15
 WINDOWWIDTH = 700
 WINDOWHEIGHT = 600
 CELLSIZE = 20
@@ -14,7 +14,7 @@ assert WINDOWWIDTH % CELLSIZE == 0, "Window width must be a multiple of cell siz
 assert WINDOWHEIGHT % CELLSIZE == 0, "Window height must be a multiple of cell size."
 CELLWIDTH = int(WINDOWWIDTH / CELLSIZE)
 CELLHEIGHT = int(WINDOWHEIGHT / CELLSIZE)
-NUM_RED_APPLES = 10
+NUM_RED_APPLES = 15
 #             R    G    B
 WHITE     = (255, 255, 255)
 BLACK     = (  0,   0,   0)
@@ -63,21 +63,15 @@ def runGame():
 	start_two_x = random.randint(5, CELLWIDTH - 6)
 	start_two_y = random.randint(5, CELLHEIGHT - 6)
 	wormCoordstwo = [{'x': start_two_x,     'y': start_two_y},
-				  {'x': start_two_x - 1, 'y': start_two_y},
-				  {'x': start_two_x - 2, 'y': start_two_y}]
+				     {'x': start_two_x - 1, 'y': start_two_y},
+				     {'x': start_two_x - 2, 'y': start_two_y}]
 	direction = RIGHT
 	directiontwo = RIGHT
 
-	# Start the apple in a random place.
-	yellow_apple = []
-	apple = []
-	yellow_apple.append(getRandomLocation())
+	worms = [[wormCoords,direction],[wormCoordstwo,directiontwo]]
 
-	for i in range(NUM_RED_APPLES):
-		loc = getRandomLocation()
-		while loc == yellow_apple:
-			loc = getRandomLocation()
-		apple.append(loc)
+	# Start the apple in a random place.
+	apple = getRandomLocation()
 	
 #K_KP2, K_KP4,  K_KP6, and K_KP8
 	while True: # main game loop
@@ -85,136 +79,115 @@ def runGame():
 			if event.type == QUIT:
 				terminate()
 			elif event.type == KEYDOWN:
-				if (event.key == K_LEFT or event.key == K_KP4) and direction != RIGHT:
-					direction = LEFT
-				elif (event.key == K_a or event.key == K_KP4) and directiontwo != RIGHT:
-					directiontwo = LEFT
-				elif (event.key == K_RIGHT or event.key == K_KP6) and direction != LEFT:
-					direction = RIGHT
-				elif (event.key == K_d or event.key == K_KP6) and directiontwo != LEFT:
-					directiontwo = RIGHT
-				elif (event.key == K_UP or event.key == K_KP8) and direction != DOWN:
-					direction = UP
-				elif (event.key == K_w or event.key == K_KP8) and directiontwo != DOWN:
-					directiontwo = UP
-				elif (event.key == K_DOWN or event.key == K_KP2) and direction != UP:
-					direction = DOWN
-				elif (event.key == K_s or event.key == K_KP2) and directiontwo != UP:
-					directiontwo = DOWN
+				if (event.key == K_LEFT or event.key == K_KP4) and worms[0][1] != RIGHT:
+					worms[0][1] = LEFT
+				elif (event.key == K_a or event.key == K_KP4) and worms[1][1] != RIGHT:
+					worms[1][1] = LEFT
+				elif (event.key == K_RIGHT or event.key == K_KP6) and worms[0][1] != LEFT:
+					worms[0][1] = RIGHT
+				elif (event.key == K_d or event.key == K_KP6) and worms[1][1] != LEFT:
+					worms[1][1] = RIGHT
+				elif (event.key == K_UP or event.key == K_KP8) and worms[0][1] != DOWN:
+					worms[0][1] = UP
+				elif (event.key == K_w or event.key == K_KP8) and worms[1][1] != DOWN:
+					worms[1][1] = UP
+				elif (event.key == K_DOWN or event.key == K_KP2) and worms[0][1] != UP:
+					worms[0][1] = DOWN
+				elif (event.key == K_s or event.key == K_KP2) and worms[1][1] != UP:
+					worms[1][1] = DOWN
 				elif event.key == K_ESCAPE:
 					terminate()
 
-
-		#check to see if all the apples are off the screen
-		are_gone = True
-		for i in range(len(apple)):
-			if apple[i] != {'x': -1, 'y': -1}:
-				are_gone = False
-
-		if are_gone:
-			for i in range(3):
-				yellow_apple.append(getRandomLocation())
-			for i in range(len(apple)):
-				loc = getRandomLocation()
-				for j in range(len(yellow_apple)):
-					if loc == yellow_apple[j]:
-						loc = getRandomLocation()
-				while yellow_apple == loc:
-					loc = getRandomLocation()
-				apple[i] = loc
-
-		drawScore(len(wormCoords) - 3, LIME)
-
+		#check all worms for running into walls
+		for worm in worms:
+			if worm[0][HEAD]['x'] == -1 or worm[0][HEAD]['x'] == CELLWIDTH or worm[0][HEAD]['y'] == -1 or worm[0][HEAD]['y'] == CELLWIDTH:
+				return
 
 		if wormCoords[HEAD]['x'] == -1 or wormCoords[HEAD]['x'] == CELLWIDTH or wormCoords[HEAD]['y'] == -1 or wormCoords[HEAD]['y'] == CELLHEIGHT:
-			update_screen(wormCoords, wormCoordstwo, apple, yellow_apple, len(wormCoords)-5, len(wormCoordstwo)-3)
+			update_screen(wormCoords, wormCoordstwo, apple, len(wormCoords)-5, len(wormCoordstwo)-3)
 			return # game over
 
 		for wormBody in wormCoords[1:]:
 			if wormBody['x'] == wormCoords[HEAD]['x'] and wormBody['y'] == wormCoords[HEAD]['y']:
-				update_screen(wormCoords, wormCoordstwo, apple, yellow_apple, len(wormCoords)-3, len(wormCoordstwo)-5)
+				update_screen(wormCoords, wormCoordstwo, apple, len(wormCoords)-3, len(wormCoordstwo)-5)
 				return
 
 		#check if the second worm has hit itself
 		if wormCoordstwo[HEAD]['x'] == -1 or wormCoordstwo[HEAD]['x'] == CELLWIDTH or wormCoordstwo[HEAD]['y'] == -1 or wormCoordstwo[HEAD]['y'] == CELLHEIGHT:
-			update_screen(wormCoords, wormCoordstwo, apple, yellow_apple, len(wormCoords)-3, len(wormCoordstwo)-5)
+			update_screen(wormCoords, wormCoordstwo, apple, len(wormCoords)-3, len(wormCoordstwo)-5)
 			return
 
 		for wormBody in wormCoordstwo[1:]:
 			if wormBody['x'] == wormCoordstwo[HEAD]['x'] and wormBody['y'] == wormCoordstwo[HEAD]['y']:
-				update_screen(wormCoords, wormCoordstwo, apple, yellow_apple, len(wormCoords)-3, len(wormCoordstwo)-5)
+				update_screen(wormCoords, wormCoordstwo, apple, len(wormCoords)-3, len(wormCoordstwo)-5)
 				return
 
-		# check if first worm has eaten an apply
-		got_apple = False
-		for i in range(len(apple)):
-			if wormCoords[HEAD]['x'] == apple[i]['x'] and wormCoords[HEAD]['y'] == apple[i]['y']:
-				# don't remove worm's tail segment
-				apple[i] = {'x': -1, 'y': -1} # set a new apple somewhere
-				got_apple = True
-		if got_apple:
-			pass
+		# check if first worm has eaten an apple
+		if wormCoords[HEAD]['x'] == apple['x'] and wormCoords[HEAD]['y'] == apple['y']:
+			# don't remove worm's tail segment
+			apple = getRandomLocation() # set a new apple somewhere
 		else:
-			del wormCoords[-1] # remove worm's tail segment         
-		
-		#second worm getting the apple
-		got_apple_two = False
-		for i in range(len(apple)):
-			if wormCoordstwo[HEAD]['x'] == apple[i]['x'] and wormCoordstwo[HEAD]['y'] == apple[i]['y']:
-				apple[i] = {'x': -1, 'y': -1}
-				got_apple_two = True
-		if got_apple_two:
-			pass
+			del wormCoords[-1] # remove worm's tail segment
+		# check if second worm has eaten an apple
+		if wormCoordstwo[HEAD]['x'] == apple['x'] and wormCoordstwo[HEAD]['y'] == apple['y']:
+			apple = getRandomLocation()
 		else:
 			del wormCoordstwo[-1]
-				
 
-		#check to see if it has eaten a yellow apple
-		for i in range(len(yellow_apple)):
-			if wormCoords[HEAD]['x'] == yellow_apple[i]['x'] and wormCoords[HEAD]['y'] == yellow_apple[i]['y']:
+		#function to avoid all the walls
+		for worm in worms:
+			worm[1] = avoidWalls(worm[0], worm[1])
 
-				return
+		for worm in worms:
+			worm = addsegment(worm)
 
-		#check to see if second worm has eaten a yellow apple
-		for i in range(len(yellow_apple)):
-			if wormCoordstwo[HEAD]['x'] == yellow_apple[i]['x'] and wormCoordstwo[HEAD]['y'] == yellow_apple[i]['y']:
-				return
-
-		# move the worm by adding a segment in the direction it is moving
-		if direction == UP:
-			newHead = {'x': wormCoords[HEAD]['x'], 'y': wormCoords[HEAD]['y'] - 1}
-		elif direction == DOWN:
-			newHead = {'x': wormCoords[HEAD]['x'], 'y': wormCoords[HEAD]['y'] + 1}
-		elif direction == LEFT:
-			newHead = {'x': wormCoords[HEAD]['x'] - 1, 'y': wormCoords[HEAD]['y']}
-		elif direction == RIGHT:
-			newHead = {'x': wormCoords[HEAD]['x'] + 1, 'y': wormCoords[HEAD]['y']}
-
-		#move the second worm
-		if directiontwo == UP:
-			newHeadtwo = {'x': wormCoordstwo[HEAD]['x'], 'y': wormCoordstwo[HEAD]['y'] - 1}
-		elif directiontwo == DOWN:
-			newHeadtwo = {'x': wormCoordstwo[HEAD]['x'], 'y': wormCoordstwo[HEAD]['y'] + 1}
-		elif directiontwo == LEFT:
-			newHeadtwo = {'x': wormCoordstwo[HEAD]['x'] - 1, 'y': wormCoordstwo[HEAD]['y']}
-		elif directiontwo == RIGHT:
-			newHeadtwo = {'x': wormCoordstwo[HEAD]['x'] + 1, 'y': wormCoordstwo[HEAD]['y']}
-
-			
-		wormCoords.insert(0, newHead)
-		wormCoordstwo.insert(0, newHeadtwo)
-		DISPLAYSURF.fill(BGCOLOR)
-		drawGrid()
-		drawWorm(wormCoords, GREEN)
-		drawWorm(wormCoordstwo, BLUE)
-		for i in range(len(apple)):
-			drawApple(apple[i], RED)
-		for i in range(len(yellow_apple)):
-			drawApple(yellow_apple[i], YELLOW)
-		drawScore(len(wormCoords) - 3, LIME)
-		drawScore(len(wormCoordstwo) - 3, SCOREBLUE)
-		pygame.display.update()
+		update_screen(wormCoords, wormCoordstwo, apple, len(wormCoords)-3, len(wormCoordstwo)-3)
 		FPSCLOCK.tick(FPS)
+
+def addsegment(worm):
+	if worm[1] == UP:
+		newHead = {'x': worm[0][HEAD]['x'], 'y': worm[0][HEAD]['y'] - 1}
+	elif worm[1] == DOWN:
+		newHead = {'x': worm[0][HEAD]['x'], 'y': worm[0][HEAD]['y'] + 1}
+	elif worm[1] == LEFT:
+		newHead = {'x': worm[0][HEAD]['x'] - 1, 'y': worm[0][HEAD]['y']}
+	elif worm[1] == RIGHT:
+		newHead = {'x': worm[0][HEAD]['x'] + 1, 'y': worm[0][HEAD]['y']}
+	return worm[0].insert(0, newHead)
+
+def avoidWalls(wormCoords, direction):
+	if wormCoords[HEAD]['x'] == 0 and wormCoords[HEAD]['y'] == 0 and direction == UP:
+		return RIGHT
+	elif wormCoords[HEAD]['x'] == 0 and wormCoords[HEAD]['y'] == CELLHEIGHT-1 and direction == DOWN:
+		return RIGHT
+	elif wormCoords[HEAD]['x'] == 0 and wormCoords[HEAD]['y'] == 0 and direction == LEFT:
+		return DOWN
+	elif wormCoords[HEAD]['x'] == 0 and wormCoords[HEAD]['y'] == CELLHEIGHT-1 and direction == LEFT:
+		return UP
+	elif wormCoords[HEAD]['x'] == CELLWIDTH-1 and wormCoords[HEAD]['y'] == 0 and direction == RIGHT:
+		return DOWN
+	elif wormCoords[HEAD]['x'] == CELLWIDTH-1 and wormCoords[HEAD]['y'] == 0 and direction == UP:
+		return LEFT
+	elif wormCoords[HEAD]['x'] == CELLWIDTH-1 and wormCoords[HEAD]['y'] == CELLHEIGHT-1 and direction == RIGHT:
+		return UP
+	elif wormCoords[HEAD]['x'] == CELLWIDTH-1 and wormCoords[HEAD]['y'] == CELLHEIGHT-1 and direction == DOWN:
+		return LEFT 
+	elif wormCoords[HEAD]['x'] == 0 and direction == LEFT:
+		return getRandomDirection(UP, DOWN)
+	elif wormCoords[HEAD]['x'] == CELLWIDTH-1 and direction == RIGHT:
+		return getRandomDirection(UP, DOWN)
+	elif wormCoords[HEAD]['y'] == 0 and direction == UP:
+		return getRandomDirection(LEFT, RIGHT)
+	elif wormCoords[HEAD]['y'] == CELLHEIGHT-1 and direction == DOWN:
+		return getRandomDirection(LEFT, RIGHT)
+	else:
+		return direction
+
+def getRandomDirection(DIR1, DIR2):
+	if random.randint(0,1) == 1:
+		return DIR1
+	else:
+		return DIR2
 
 def drawPressKeyMsg():
 	pressKeySurf = BASICFONT.render('Press a key to play.', True, DARKGRAY)
@@ -222,15 +195,15 @@ def drawPressKeyMsg():
 	pressKeyRect.topleft = (WINDOWWIDTH - 200, WINDOWHEIGHT - 30)
 	DISPLAYSURF.blit(pressKeySurf, pressKeyRect)
 
-def update_screen(wormCoords, wormCoordstwo, apple, yellow_apple, score1, score2):
+def updatescreen(worms, apple, lost):
+	return 0
+
+def update_screen(wormCoords, wormCoordstwo, apple, score1, score2):
 		DISPLAYSURF.fill(BGCOLOR)
 		drawGrid()
 		drawWorm(wormCoords, GREEN)
 		drawWorm(wormCoordstwo, BLUE)
-		for i in range(len(apple)):
-			drawApple(apple[i], RED)
-		for i in range(len(yellow_apple)):
-			drawApple(yellow_apple[i], YELLOW)
+		drawApple(apple, RED)
 		drawScore(score1, LIME)
 		drawScore(score2, SCOREBLUE)
 		pygame.display.update()
