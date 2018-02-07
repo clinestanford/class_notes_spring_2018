@@ -2,7 +2,7 @@
 ## Data declaration section 
 ## String to be printed: 
 .data
-out_string: .asciiz "\nHello, World!\n"
+out_string: .asciiz "\nTry out a different string: perhapse something a little more longer\n"
 
      .text ## Assembly language instructions go in text segment 
 main: ## Start of code section
