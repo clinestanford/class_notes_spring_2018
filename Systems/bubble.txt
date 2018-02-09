@@ -1,0 +1,44 @@
+
+
+C style:
+
+#include
+//global vars
+//function declarations
+int main(){
+	
+}
+function definitions
+
+for(int i = 0; i < size; ++i){
+	for(int j = 0; j < size; ++j){
+		if(arr[i] < arr[j]){
+			swap(arr[i], arr[j])
+		}
+	}
+}
+
+//if you run out of registrys, push to stack
+
+print
+sort
+print
+
+will need to:
+
+jal -> jump and link
+jal print
+jal sort
+jal print
+
+stack pointer (sp) is the next location to save to stack
+	when you use stack pointer, you decrement each time.
+		Push:
+		SW   $RA 0($SP)
+		ADDI $SP $SP -4
+		Pop:
+		LW   $RA 0($SP)
+		ADDI $SP $SP 4
+	-be sure that you don't use a jump and link within another jump and link
+	-push and pop consistantly 	
+	-stack pointer should be to the next available spot

@@ -1,0 +1,29 @@
+Squirmy Analysis:
+Multi-Agent Systems
+Stanford Cline
+
+It was interesting to see the difference between the centrally controled worm and
+the agent worm. The centrally controlled worm knew where the apple was throughout
+the entire game, while the agent would wander randomly until it came within a 
+certain distance of the apple, at which point it would "see" the apple and go straight
+for it. At the beginning I would have anticipated the central worm to win almost every
+time, and for a while it was winning every time because I hadn't correctly programmed 
+the agent, but once I got all the kinks in the programming of the agent it was interesting
+to see the two go. 
+
+The central worm grow much faster when the apples spawned indefinitely, but would nearly
+always die after being hit by the smaller agent. If the rules of the game were changed a
+little bit to making the larger worm win, which to me seems logical, the central agent would 
+most likely win every scenario, until it split and separated into two smaller worms. The 
+central worm performed better in was when the apples were limited to just one quadrant of
+the screen.
+
+apart from the indefinite spawning of the apples and the single quadrant, the agent seemed
+to outperform the central worm. It would grow at a more steady rate, and did better.
+
+The way I tested for my data was by running each of the different simulations 15 times. The
+results of these different tests are in the appledata.png file from the zip. 
+
+It was an interesting assignment, and I liked that fact that I could learn for myself.
+
+Thanks!

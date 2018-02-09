@@ -1,4 +1,60 @@
 
 
+JCF-java collections framework
+	this is where they store a lot of the things to group elements (arrays, vectors)
+
+
 ImageView / Image:
 	can take jpg, png, gif, bmp;
+
+Enumerated types:
+	the value stored in the type is always the type
+	enum types are implicity final and static
+
+<modifier> enum <Name>{ //where modifier is public/private
+	SUNDAY,
+	MONDAY,
+	TUESDAY,
+	WEDNESDAY,
+	THURSDAY,
+	FRIDAY,
+	SATURDAY
+}
+
+and in the class:
+	Day today = Day.MONDAY
+
+//how to declare an array
+ArrayList<objectType> list = new ArrayList<>();
+methods:
+
+add(element)
+add(i,element)
+get()
+remove(i)
+erase()
+clear()
+
+for-each loop:
+	for(<type><id>:<list/array>){
+		use <id> in loop
+	}
+
+Wrapper Class: there are 8 Wrapper classes, they are immutable
+	Integer
+	Character
+	Double
+	Float
+	Short
+	Long
+	Boolean
+	Byte
+
+	Autoboxing:
+		Integer x = 5;
+		Integer y = 7;
+	AutoUnBoxing:
+		Integer z = x + y;
+
+
+Shapes:

@@ -6,7 +6,7 @@
 import random, pygame, sys
 from pygame.locals import *
 
-FPS = 100
+FPS = 25
 WINDOWWIDTH = 700
 WINDOWHEIGHT = 600
 CELLSIZE = 20
@@ -42,6 +42,7 @@ DOWN = 'down'
 LEFT = 'left'
 RIGHT = 'right'
 
+NEIGHBORHOOD = 20
 HEAD = 0 # syntactic sugar: index of the worm's head
 
 def main():
@@ -68,11 +69,22 @@ def runGame():
 	wormCoordstwo = getRandomStart()
 
 	worms = [[wormCoords,RIGHT,GREEN,1],[wormCoordstwo,RIGHT,BLUE,2]]
-	colors = [ORANGE,GREEN,YELLOW,BLUE]
+	colors = [ORANGE,YELLOW, BLUE]
 
+
+	#worm[0] - the worm
+	#worm[1] - the direction
+	#worm[2] - color
+	#worm[3] - other
 	# Start the apple in a random place.
-	apple = getRandomLocation()
 	
+	locs = getlist()
+	applei = 0
+	mode = 0
+	#apple = getnextapple(applei, locs, mode)
+	apple = getnextapplenomode(applei,locs)
+	applei+=1
+
 	ticker = 0
 #K_KP2, K_KP4,  K_KP6, and K_KP8
 	while True: # main game loop
@@ -98,9 +110,22 @@ def runGame():
 					worms[1][1] = DOWN
 				elif event.key == K_ESCAPE:
 					terminate()
+		'''
+		mode = int((ticker%200)/50)
 
-		if ticker%random.randint(1,20)==0:
-			worms[0][1] = getagentDir(worms[0])
+		current = 20
+		if ticker%20==0:
+			apple = getnextapple(applei, locs, mode)
+			applei+=1
+			if current % 5 == 0:
+				current = 35
+			elif current % 3 == 0:
+				current = 25
+			else:
+				current = 15
+		'''
+
+		worms[0][1] = getagentDir(worms[0], apple, ticker)
 		ticker+=1
 		####affects directions of agent#######
 		#get the centralized direction for the worms
@@ -116,6 +141,8 @@ def runGame():
 		for worm in worms:
 			worm = addsegment(worm)
 
+		worms[0][2] = GREEN
+
 		#add another worm if there is only one
 		if len(worms) == 1:
 				worms.append([getRandomStart(), RIGHT, getRandomColor(colors)])
@@ -124,7 +151,6 @@ def runGame():
 		for worm in worms:
 			if worm[0][HEAD]['x'] == -1 or worm[0][HEAD]['x'] == CELLWIDTH or worm[0][HEAD]['y'] == -1 or worm[0][HEAD]['y'] == CELLWIDTH:
 				updatescreen(worms, apple, i)
-				print("worm ran into wall: ", worm[0])
 				return
 		
 		#verify each worm hasn't hit himself
@@ -134,13 +160,19 @@ def runGame():
 			for wormBody in worm[0][1:]:
 				if wormBody['x'] == worm[0][HEAD]['x'] and wormBody['y'] == worm[0][HEAD]['y']:
 					updatescreen(worms, apple, i)
-					print("worm ran into itself: ", worm[0])
+					maxl = getmaxlength(worms)
+					if i == 0:
+						print("agent", len(worm[0]), maxl)
+					else:
+						print("other", len(worm[0]), maxl)
 					return
 			i+=1
 		#checks all worms for apple eating
 		for worm in worms:
 			if worm[0][HEAD]['x'] == apple['x'] and worm[0][HEAD]['y'] == apple['y']:
-				apple = getRandomLocation()
+				#apple = getnextapple(applei, locs, mode)
+				apple = getnextapplenomode(applei,locs)
+				applei+=1
 			else:
 				del worm[0][-1]
 
@@ -159,11 +191,39 @@ def runGame():
 '''
 things that I still have to do:
 	take a look at collision function-
-	different functions for the spawning of different apples
-	find a way to get the same arrival of apples. read in list with 100s?
-	
+	different functions for the spawning of different apples	
 '''
+def getmaxlength(worms):
+	maxl = 0
+	for worm in worms:
+		if len(worm[0]) > maxl:
+			maxl = len(worm[0])
+	return maxl
 
+def getnextapplenomode(i,locs):
+	x = locs[i][0]
+	y = locs[i][1]
+	return {'x':int(x),'y':int(y)}
+
+def getnextapple(i, locs, mode):
+	x = locs[i][0]
+	y = locs[i][1]
+	spot = {'x':int(x), 'y':int(y)}
+
+	if mode == 0:
+		spot['x'] = int(spot['x']/2)
+		spot['y'] = int(spot['y']/2)
+	elif mode == 1:
+		spot['x'] = int(spot['x']/2)
+		spot['y'] = int(spot['y']/2 + CELLHEIGHT/2)
+	elif mode == 2:
+		spot['x'] = int(spot['x']/2 + CELLWIDTH/2)
+		spot['y'] = int(spot['y']/2)
+	else:
+		spot['x'] = int(spot['x']/2 + CELLWIDTH/2)
+		spot['y'] = int(spot['y']/2 + CELLHEIGHT/2)
+
+	return spot
 
 def getRandomStart():
 	startx = random.randint(5, CELLWIDTH - 6)
@@ -178,24 +238,35 @@ def getRandomColor(colors):
 	return colors[i]
 
 #I think there is some issue with this function........
-def getagentDir(worm):
+def getagentDir(worm, apple, ticker):
+	dist = getdistance(worm[0][HEAD], apple)
+	if dist < NEIGHBORHOOD:
+		return centralizedDir(worm, apple)
 	cur = worm[1]
-	print(cur)
-	if cur == UP or cur == DOWN:
-		if worm[0][HEAD]['x'] == 0:
-			return getRandomDirection(RIGHT, cur)
-		elif worm[0][HEAD]['x'] == CELLWIDTH-1:
-			return getRandomDirection(LEFT, cur)
-		else:
-			return getRandomDirectionthree(LEFT, RIGHT, cur)
+	modulo = random.randint(1,20)
+	if ticker%(modulo)==0:
+		if cur == UP or cur == DOWN:
+			if worm[0][HEAD]['x'] == 0:
+				return getRandomDirection(RIGHT, cur)
+			elif worm[0][HEAD]['x'] == CELLWIDTH-1:
+				return getRandomDirection(LEFT, cur)
+			else:
+				return getRandomDirectionthree(LEFT, RIGHT, cur)
 
-	elif cur == RIGHT or cur == LEFT:
-		if worm[0][HEAD]['y'] == 0:
-			return getRandomDirection(DOWN, cur)
-		elif worm[0][HEAD]['y'] == CELLHEIGHT-1:
-			return getRandomDirection(UP, cur)
-		else:
-			return getRandomDirectionthree(UP, DOWN, cur)
+		elif cur == RIGHT or cur == LEFT:
+			if worm[0][HEAD]['y'] == 0:
+				return getRandomDirection(DOWN, cur)
+			elif worm[0][HEAD]['y'] == CELLHEIGHT-1:
+				return getRandomDirection(UP, cur)
+			else:
+				return getRandomDirectionthree(UP, DOWN, cur)
+	else:
+		return cur
+
+def getdistance(head, apple):
+	x = abs(head['x']-apple['x'])
+	y = abs(head['y']-apple['y'])
+	return float((x**2 + y**2)**.5)
 
 def splitworm(worm,i,worms,colors):
 	half = int(len(worm[0])/2)
@@ -363,6 +434,22 @@ def showStartScreen():
 def terminate():
 	pygame.quit()
 	sys.exit()
+
+def fillrandomlist():
+	file = open("xandy.txt", 'w')
+	for i in range(800):
+		x = random.randint(0, CELLWIDTH - 1)
+		y = random.randint(0, CELLHEIGHT - 1)
+		file.write(str(x)+","+str(y)+"\n")
+
+def getlist():
+	file = open("xandy.txt",'r')
+	locs = []
+	for line in file:
+		loc = line.strip().split(",")
+		locs.append(loc)
+	return locs
+
 
 
 def getRandomLocation():
