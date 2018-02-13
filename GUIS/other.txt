@@ -58,3 +58,21 @@ Wrapper Class: there are 8 Wrapper classes, they are immutable
 
 
 Shapes:
+	Circle cir1 = new Circle();
+	cir1.setFill(Color.RED);
+	cir1.setRadius(150);
+	cir1.setX(25);
+	cir1.setY(25);
+
+	//event handling
+	cir1.setOnMouseClicked((event) -> {
+		Paint temp = cir1.getFill();
+		cir1.setFill(cir1.getStroke());
+		cir1.setStroke(tmp);
+		//will switch the color values
+	})
+
+	//how to draw shapes
+
+Clips:
+	clips limit the area a shape can be drawn to in 

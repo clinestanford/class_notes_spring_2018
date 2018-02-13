@@ -229,6 +229,4 @@ public class Demo extends Application{
 "added text for a different git commit"
 
 
-
-
 //Enumerated types
