@@ -76,3 +76,11 @@ Shapes:
 
 Clips:
 	clips limit the area a shape can be drawn to in 
+
+
+Events:
+	MousePressed()		//on the press of the click
+	MouseDragged()		//
+	mouseReleased()		//also on release of mouse
+	mouseClicked();		//on realease of the mouse
+	mouseDragDetected()	//will start once a drag is detected

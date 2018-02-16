@@ -1,8 +1,8 @@
 
 .data
 #first need to store the array
-myarray: .word 12, 15
-mysize: .word 2
+myarray: .word 15, 23, 12, 5, 8, 15, 6, 28, 4
+mysize: .word 10
 
 .text
 j main #jump to the main part of the program
@@ -36,7 +36,61 @@ printfunc: #print function
    li $v0 11
    addi $a0 $0 0x0D	#prints character return at the end of the line
    syscall
+   addi $a0 $0 0x0D
+   syscall
    jr $ra		#jumps back to return address unconditionally
+   
+swap:
+			#don't forgot a2 is the i index, and a3 is the j
+   sll $t0 $a2 2
+   add $t0 $a0 $t0	#adds the offset from the index to the array position for i
+   lw  $t2 0($t0)
+   lw  $t3 4($t0)	#loads each of the words into registers t0 and t1
+   sw  $t3 0($t0)
+   sw  $t2 4($t0)	#places the value from i into j, and j into i
+   jr $ra
+   
+   
+sort:
+   move $s0 $a0		#s0 is the beginning of the array
+   move $s1 $a1		#s1 is the size of the array
+   addi $s2 $s1 -1	#s2 stores the value for n-1
+   addi $t9 $0 0
+   addi $t8 $0 0	#starts i = j = 0
+   addi $sp $sp -4
+   sw   $ra 0($sp)	#push the return address to the stack, we will be linking with other functions
+   outer:
+      add  $t8 $0 $0
+      slt  $t0 $t9 $s2
+      beq  $t0 $0 exit	#should exit if i == size
+      inner:
+         neg $t0 $t9
+         add $t0 $t0 $s2
+         slt $t1 $t8 $t0
+         beq $t1 $0 exit1
+         sll $t0 $t8 2
+         add $t1 $t0 $s0
+         lw $t2 0($t1)
+         lw $t3 4($t1)
+         slt $t4 $t2 $t3
+         bne $t4 $0 incj
+         move $a2 $t8
+         jal swap
+         j incj
+        
+   exit1:
+   addi $t9 $t9 1	#increment i+1
+   j outer
+   
+   incj:
+   addi $t8 $t8 1
+   j inner
+        
+   exit:   
+   lw   $ra 0($sp)
+   addi $sp $sp 4
+   jr $ra
+   
    
 main:#starts the main portion of the program
    li $v0 4	#load system instruction 4(print string) into v0 register
@@ -44,6 +98,12 @@ main:#starts the main portion of the program
    la $a0 myarray
    lw $a1 mysize
    jal printfunc
+    
+   #remember to reset the variables
+   la $a0 myarray
+   lw $a1 mysize
+   
+   jal sort
    
    jal printfunc
    
