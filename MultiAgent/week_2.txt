@@ -1,0 +1,11 @@
+
+Voting:
+monotonicity: ranking a candidate higher should help that candidate
+	if candidate w wins, we imporove its position, and leave everything else the same
+	
+	single transferable voting:
+
+	lowest plurality:
+
+
+

@@ -171,6 +171,14 @@ Game Theory:
 	Satisficing equilibrium: there is a state that is good enough, will
 		compromise
 		
+Borda Paradox:
+	a > b > c > d
+	b > c > d > a
+	c > d > a > b
 
+	however, if you removeall the d's, c no longer wins
+	This effects voting, when there are mediocre candidates, effect outcome
 
-
+Condorcet winner condition:
+	if a winner should be first, or win head to head, it should always come out on top
+	or at least wins each other element the majority of the time

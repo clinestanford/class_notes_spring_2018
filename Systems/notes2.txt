@@ -1,0 +1,49 @@
+
+
+
+Stack pointer has $sp=$29
+it always points to the last used location
+	in order to put, 
+		ADDI $sp $sp -4 	//decrements by 4, the next available location
+		SW   $s0 0($sp)		//overwrites something that is at the Stack location
+
+Digital Processing Elements
+	buffer: will bump up the voltage after a 'long' drain over wire
+	inverter: switches the signal, high -> low
+	and: if both a and b are high, output is high
+	or: if a or b is high, output is high
+	xor: if only a or b individually is hight, output is high
+
+	each of these are made with transistors
+		most common of which are cmos(complimentary transistors,
+		also nmos and pmos
+		nmos and pmos are the opposite of each other
+
+	or is +,
+	and is *,
+	not is !, or A hat
+
+	can be linked in series and parallel
+
+DeMorgan's Law:
+	not(x+y) = not(x)*not(y)
+	not(x*y) = not(x)+not(y)
+	split the bar/not, and change the operation
+
+
+Multiplexer:
+	when you want to decide to take input A or B based on a third bit
+	A bus is an array of input bits, can be the third bit S, or A, B.
+	
+Binary multiplication:
+	when multiplying two numbers in decimal, when you multiply by the tens
+	place, you need to shift over once. Same principle applies for binary
+		0101
+	   *1010
+	  = 0000
+	  +01010
+	 +000000
+	+0101000 sum them all, 0110010 is the final answer
+
+	when adding the final answers, if there are 5 ones, need to carry
+	over to the correct place. 5 -> 101.
