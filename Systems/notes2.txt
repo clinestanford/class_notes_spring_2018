@@ -47,3 +47,17 @@ Binary multiplication:
 
 	when adding the final answers, if there are 5 ones, need to carry
 	over to the correct place. 5 -> 101.
+
+floating point numbers:
+	sign bit is 0 when positive, 1 when negative
+	E is the exponent
+		E = act. exp. + 127 (whether act. exp. > 127 || act. exp. < 127)
+	Mantissa (significand)
+		the end result of normalizing -1 (take off the leading 1)
+		
+	Steps for converting:
+		1. Denormalize
+		2. convertleft of deciman to binary
+		3. convert right side to binary
+		4. convert left and right with binary point
+		5. normalize it
