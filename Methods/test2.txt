@@ -1,0 +1,23 @@
+Test 2 Review:
+
+modular code: 
+	reduces code duplication
+	flow of data through program is easier to follow
+	code reuse is much easier
+	maintain your code
+
+restate a problem in your own words
+	identify patterns and redundancies which you can exploit to reduce the amount of work you do.
+
+Why are global constants encouraged?
+	increase readability and represent a single source of truth for a particular value
+
+what is bad about "magic numbers"
+	their meaning can be difficult to understand
+
+Why are global variables discouraged?
+	not always clear when and why their values change
+
+are global variables bad?
+	no, they can be used properly and improperly
+

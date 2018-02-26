@@ -1,0 +1,9 @@
+
+
+
+exper. 4
+	Since the probability of throwing each of the numbers on a fair dice is equal, the given probability function for throwing each of the numbers is given as: p(x) = x1 + x2 + x3 + ... + x6
+
+	The multiplication of the function p(x) by the identical function p(x) results in a function where the coefficients for each of the simplified products represents the number of possible ways to roll the given exponent.
+
+	the given function p(x)
