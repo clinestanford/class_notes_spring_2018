@@ -1,0 +1,53 @@
+
+
+
+
+
+Layour Manager:
+	Pane
+		mainPane.setStyle("-fx-background-color: blue")
+	HBox
+		padding: takes Inset(top,right,bottom,left);
+		spacing: hbox.setSpacing(20);
+		alignment: hbox.setAlignment(Pox.TOP_CENTER);
+		margin: hbox.setMargin(node, Insets);
+	VBox
+	BorderPane  divide scene into top, bottom, left, right, center
+		borderPane.setTop();
+		borderPane.setLeft();
+	FlowPane when there isn't enough room, there is flow over onto the next row
+	TilePane distributes each of the elements into a grid type, with flow over where there isn't enough room
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

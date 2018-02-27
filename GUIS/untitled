@@ -1,0 +1,33 @@
+
+
+
+application class: needs to be imported for the start method
+
+event handling: 
+	setOn (method) is an event handler
+	5 ways to set an event handler remember all 5 ways, and how they look.
+		lambda, instance, 
+
+formal vs. actual parameters:
+
+importing static things, to be able to use without reference
+
+Default Values: 
+	there are default values for class member variables
+		bool = false
+		double = 0.0
+		char = 0x00 (something like that)
+
+Ternary Operator: 
+	must have a return character, whether a method or a variable
+
+logical operator:
+	would want to use a single & instead of && when there is a computation that you want it to hit every time
+
+Autoboxing/Autounboxing:
+	int x = 5 (autoboxing)
+	int y = x (autounboxing)
+
+Enums: (be sure and review in depth)
+	can be used in a switch statement
+	constructor- 

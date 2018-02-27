@@ -21,3 +21,56 @@ Why are global variables discouraged?
 are global variables bad?
 	no, they can be used properly and improperly
 
+what is a stable sort?
+	a sorting whech preserves the original relative order between two elements in the case of a tie on its sort key
+
+Dynamic Data Structures:
+	advantages:
+		can be used where max size isn't known at compile-time
+		can grow or shrink as appropriate
+
+	disadvantages:
+		memory on the heap must be carefully managed by the programmers
+		pointers must be carefully maintained
+
+Heap, Stack, and Pointers
+	heap: dynamically allocated memory
+		using the "new" keyword
+		must use "delete" to deallocate it
+
+	stack: local variables, parameters
+		simply gets declared
+		deallocated when the function returns
+
+	pointers: 
+
+	difference between 
+	declaration: here is this, takes up this much memory 
+	definition: 
+
+	stack exhaustion/overflow:
+		when the stack and heap hit each other
+
+	heap overflow:
+		allocates memory indefinitely
+		be careful not to lose access to allocated memory
+
+	*(pointer symbol) is a unary operator
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
